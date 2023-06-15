@@ -1,0 +1,57 @@
+.card {
+    display: flex;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 500ms;
+    overflow: hidden;
+}
+
+.card img {
+    min-width: 100%;
+   min-height: 100%;
+   object-fit: cover;
+}
+
+.card:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-2px) scale(1.02);
+}
+
+.photo-grid {
+    display: grid;
+    margin: 40px 70px 40px 70px;;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* make 12 of them, make each not smaller than 240px and keep the one fraction rule */
+    /* use auto-fill, if you want to fill the last row that is not full on the page */
+    grid-auto-rows: 240px;
+}
+
+@media screen and (min-width: 600px) {
+    .card-taller {
+        grid-row: span 2 / auto;
+    }
+
+    .card-wider {
+        grid-column: span 2 / auto;
+    }
+}
+
+@media (max-width: 940px) {
+    .smaller{
+        grid-column: span 1 / span 1;
+    } 
+    .remove {
+        display: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .photo-grid {
+      margin: 40px 35px 40px 35px;
+    }
+    .card-taller {
+        grid-row: span 2 / auto;
+    }
+}
